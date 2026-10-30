@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Football Store Kit - Toko Perlengkapan Olahraga</title>
+    <style>
+        /* =========================
+           RESET & BASE STYLES
+           ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        /* =========================
+           TOP ANNOUNCEMENT BAR
+           ========================= */
+        .top-bar {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           HEADER & LOGO
+           ========================= */
+        header {
+            background-color: #1e3a5f;
+            color: white;
+            text-align: center;
+            padding: 20px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            font-style: italic;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #ffcc00;
+        }
+
+        .search-bar {
+            flex: 0 1 400px;
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #111;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #e6b800;
+        }
+
+        .nav-icons a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           MENU NAVIGASI & DROPDOWN
+           ========================= */
+        nav {
+            background-color: #222;
+            text-align: center;
+            position: relative;
+            z-index: 999;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-item a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 14px 22px;
+            transition: 0.3s;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .nav-item a:hover, .nav-item a.active {
+            background-color: #1e3a5f;
+            color: #ffcc00;
+        }
+
+        /* Dropdown Menu Sub-Halaman Produk */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2b2b2b;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            list-style: none;
+            text-align: left;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            border-bottom: 1px solid #3d3d3d;
+            font-size: 13px;
+        }
+
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #1e3a5f;
+            color: #ffcc00;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* =========================
+           HERO BANNER
+           ========================= */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 95, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn-shop {
+            background-color: #ffcc00;
+            color: #111;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-shop:hover {
+            background-color: #fff;
+            color: #1e3a5f;
+        }
+
+        /* =========================
+           AREA KONTEN / MAIN
+           ========================= */
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 25px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            min-height: 400px;
+        }
+
+        .page-content {
+            display: none !important;
+        }
+
+        .page-content.active {
+            display: block !important;
+        }
+
+        main h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1e3a5f;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           PRODUCT GRID & CARDS
+           ========================= */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .product-info {
+            padding: 15px;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 5px 0 10px 0;
+            height: 40px;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #1e3a5f;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .btn-buy-item {
+            width: 100%;
+            padding: 8px;
+            background-color: #1e3a5f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-buy-item:hover {
+            background-color: #ffcc00;
+            color: #111;
+        }
+
+        /* =========================
+           FORM & CUSTOM PAGES STYLES
+           ========================= */
+        .form-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-submit {
+            background-color: #1e3a5f;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #ffcc00;
+            color: #111;
+        }
+
+        .info-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1e3a5f;
+        }
+
+        .info-card h3 {
+            color: #1e3a5f;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           IFRAME SECTION
+           ========================= */
+        .video-section {
+            margin-top: 30px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: 2px solid #1e3a5f;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        /* =========================
+           FOOTER
+           ========================= */
+        footer {
+            background-color: #1e3a5f;
+            color: white;
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* =========================
+           RESPONSIVE
+           ========================= */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        GRATIS ONGKIR DENGAN MINIMAL BELANJA Rp 500.000 | 100% PRODUK ORIGINAL
+    </div>
+
+    <!-- Header Main -->
+    <header>
+        <div class="navbar">
+            <a href="javascript:void(0);" onclick="showPage('beranda')" class="logo">TOTAL<span>FOOTBALL</span></a>
+            
+            <div class="search-bar">
+                <input type="text" id="global-search-input" placeholder="Cari sepatu futsal, bola, jersey...">
+                <button type="button" onclick="handleSearch()">Cari</button>
+            </div>
+
+            <div class="nav-icons">
+                <a href="javascript:void(0);" onclick="alert('Fitur Masuk/Login dalam pengembangan')">Masuk</a>
+                <a href="javascript:void(0);" onclick="showPage('order')">Keranjang (<span id="cart-count">0</span>)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Navigasi Utama -->
+    <nav>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="javascript:void(0);" id="nav-beranda" class="active" onclick="showPage('beranda')">Beranda</a>
+            </li>
+            
+            <!-- Menu Produk dengan Dropdown Sub-Halaman -->
+            <li class="nav-item">
+                <a href="javascript:void(0);" id="nav-produk" onclick="showPage('produk-semua')">Produk ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0);" onclick="showPage('produk-semua')">Semua Produk (16)</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('futsal')">Sepatu Futsal (4)</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('bola')">Sepatu Bola (4)</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('apparel')">Apparel / Jersey (4)</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('aksesori')">Aksesori Olahraga (4)</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0);" id="nav-order" onclick="showPage('order')">Order Barang</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0);" id="nav-kredit" onclick="showPage('kredit')">Kredit & Cicilan</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0);" id="nav-kontak" onclick="showPage('kontak')">Kontak Kami</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Banner (Tampil hanya di Beranda) -->
+    <section class="hero" id="hero-banner">
+        <div>
+            <h1>GEAR UP FOR THE GAME</h1>
+            <p>Dapatkan koleksi sepatu futsal dan sepak bola original terbaru di Total Football!</p>
+            <a href="javascript:void(0);" onclick="showPage('produk-semua')" class="btn-shop">Belanja Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Area Konten Utama -->
+    <main>
+
+        <!-- 1. HALAMAN BERANDA -->
+        <div id="page-beranda" class="page-content active">
+            <h2>Produk Unggulan Total Football</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//catalog-image/99/MTA-58907312/_specs_sepatu_futsal_specs_original_acc_lightspeed_3_lx_elite_in_402085_bnib_full02_h8tghieh.jpg" class="product-img" alt="Sepatu Futsal">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Specs Lightspeed 3 LX IN - Red/White</div>
+                        <div class="product-price">Rp 549.800</div>
+                        <button class="btn-buy-item" onclick="directOrder('Specs Lightspeed 3 LX IN')">Pesan Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvaaFxv8NXk6XwahC6b339qDQ0fX5Y3yg9RGAKN5JrIw&s" class="product-img" alt="Sepatu Bola">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Nike Vapor 15 Academy FG - Green</div>
+                        <div class="product-price">Rp 1.129.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Nike Vapor 15 Academy FG')">Pesan Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5gfZu3q--SN7HYKGdHTqvsRnY2ZZP62x5B7hkEfXXWw&s" class="product-img" alt="Jersey">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Jersey Timnas Indonesia Home 2024 Red</div>
+                        <div class="product-price">Rp 499.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Jersey Timnas Indonesia Home 2024')">Pesan Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2QRqng6ohwpeEAPdWjdOTJB75S8EZmueLZsD8HqW64g&s=10" class="product-img" alt="Bola Sepak">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Bola Sepak Adidas FIFA World Cup Size 5</div>
+                        <div class="product-price">Rp 350.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Bola Sepak Adidas FIFA World Cup')">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h2>Video Review & Highlights</h2>
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Official Video Review" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- 2. SUB-HALAMAN PRODUK: SEMUA PRODUK (16 Produk Lengkap) -->
+        <div id="page-produk-semua" class="page-content">
+            <h2>Katalog Semua Produk (Total 16 Produk)</h2>
+            <div class="product-grid">
+                <!-- 4 Sepatu Futsal -->
+                <div class="product-card">
+                    <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//catalog-image/99/MTA-58907312/_specs_sepatu_futsal_specs_original_acc_lightspeed_3_lx_elite_in_402085_bnib_full02_h8tghieh.jpg" class="product-img" alt="Sepatu Futsal">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Specs Lightspeed 3 LX IN - Red/White</div>
+                        <div class="product-price">Rp 549.800</div>
+                        <button class="btn-buy-item" onclick="directOrder('Specs Lightspeed 3 LX IN')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkakZYbynrjUs84zflTUkqgrDnUTERmHJRYGgKri2GSg&s=10" class="product-img" alt="Ortuseight Jogosala">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Ortuseight Jogosala Venom IN - Navy</div>
+                        <div class="product-price">Rp 499.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Ortuseight Jogosala Venom IN')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPhkca0qBqZD60WQBMR_3aIbDcu4GUB_U2VCfm688cBw&s=10" class="product-img" alt="Adidas Sala">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Adidas Top Sala Competition - Core Black</div>
+                        <div class="product-price">Rp 899.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Adidas Top Sala Competition')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM3QylxOyzedxXw_igcLh3cQEukuKQlkJPh3dF6_kFPg&s=10" class="product-img" alt="Mizuno Sala">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Mizuno Morelia Sala Classic IN - White</div>
+                        <div class="product-price">Rp 799.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Mizuno Morelia Sala Classic IN')">Order Sekarang</button>
+                    </div>
+                </div>
+
+                <!-- 4 Sepatu Bola -->
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvaaFxv8NXk6XwahC6b339qDQ0fX5Y3yg9RGAKN5JrIw&s" class="product-img" alt="Nike Vapor">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Nike Vapor 15 Academy FG - Green</div>
+                        <div class="product-price">Rp 1.129.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Nike Vapor 15 Academy FG')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6onpPOeN08olJ4zZIQQ8yISEgBbtuFVvo03pq4iXUTw&s=10" class="product-img" alt="Adidas X Speedportal">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Adidas X Speedportal .3 FG - Solar Gold</div>
+                        <div class="product-price">Rp 1.200.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Adidas X Speedportal .3 FG')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2sd5xdrHR4hsKIAg8vR_8pKbymQ4p6cYkULQsBEOtmQ&s=10" class="product-img" alt="Puma Future">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Puma Future Ultimate FG/AG - Orange/Black</div>
+                        <div class="product-price">Rp 1.450.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Puma Future Ultimate FG/AG')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8IDZcw34qV83l_x6SV6a2lLY_5ug-QRdGaAEhlyV5hg&s=10" class="product-img" alt="Spiegel Bola">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Specs Accelerator Alpha Omega FG - Royal</div>
+                        <div class="product-price">Rp 699.800</div>
+                        <button class="btn-buy-item" onclick="directOrder('Specs Accelerator Alpha Omega FG')">Order Sekarang</button>
+                    </div>
+                </div>
+
+                <!-- 4 Apparel -->
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5gfZu3q--SN7HYKGdHTqvsRnY2ZZP62x5B7hkEfXXWw&s" class="product-img" alt="Jersey Timnas">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Jersey Timnas Indonesia Home 2024 Red</div>
+                        <div class="product-price">Rp 499.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Jersey Timnas Indonesia Home 2024')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwCDSBk2UN7Pu5acEOU86oV9-Wew4OUfiLzBg8SrhTYQ&s=10" class="product-img" alt="Training Shirt">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Specs Training Shirt Dry-Fit Black</div>
+                        <div class="product-price">Rp 179.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Specs Training Shirt Dry-Fit')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx9xC6ZeFpGoZRNycz_P674XSsX43z1SbU-Lvn2XKECQ&s=10" class="product-img" alt="Jersey Away">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Jersey Real Madrid Home 25/26 White</div>
+                        <div class="product-price">Rp 550.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Jersey Real Madrid Home')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0cpZkqUbzAZHq2COjeMZrlc8aK2Wf7KA6n-HZrBnCgg&s=10" class="product-img" alt="Training Jacket">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Nike FC Anthem Jacket - Dark Navy</div>
+                        <div class="product-price">Rp 899.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Nike FC Anthem Jacket')">Order Sekarang</button>
+                    </div>
+                </div>
+
+                <!-- 4 Aksesori -->
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2QRqng6ohwpeEAPdWjdOTJB75S8EZmueLZsD8HqW64g&s=10" class="product-img" alt="Bola Sepak">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Bola Sepak Adidas FIFA World Cup Size 5</div>
+                        <div class="product-price">Rp 350.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Bola Sepak Adidas FIFA World Cup')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS00H4F-XmgV3rMxvihNYFByDmD3xlBedWju4TQOAF86A&s=10" class="product-img" alt="Kaos Kaki Grip">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Kaos Kaki AVO Anti-Slip Grip Socks</div>
+                        <div class="product-price">Rp 45.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Kaos Kaki AVO Anti-Slip Grip Socks')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhWOnEPxNLwulu_eaK_uwBtV4aIFoAaYhvhRbwI3O0fQ&s" class="product-img" alt="Shin Guard">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Nike Mercurial Lite Shin Guards - Black</div>
+                        <div class="product-price">Rp 199.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Nike Mercurial Lite Shin Guards')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDISyS3lS1p0kb_Vyg6ZFB2zh3fL1O1Q97Ftos5YPyOw&s=10" class="product-img" alt="Gym Sack">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Tas Serut Gymsack Adidas Training Bag</div>
+                        <div class="product-price">Rp 125.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Tas Serut Gymsack Adidas')">Order Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. SUB-HALAMAN PRODUK: SEPATU FUTSAL (4 Produk) -->
+        <div id="page-futsal" class="page-content">
+            <h2>Koleksi Sepatu Futsal</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//catalog-image/99/MTA-58907312/_specs_sepatu_futsal_specs_original_acc_lightspeed_3_lx_elite_in_402085_bnib_full02_h8tghieh.jpg" alt="Specs Lightspeed">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Specs Lightspeed 3 LX IN - Red/White</div>
+                        <div class="product-price">Rp 549.800</div>
+                        <button class="btn-buy-item" onclick="directOrder('Specs Lightspeed 3 LX IN')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkakZYbynrjUs84zflTUkqgrDnUTERmHJRYGgKri2GSg&s=10" class="product-img" alt="Ortuseight Jogosala">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Ortuseight Jogosala Venom IN - Navy</div>
+                        <div class="product-price">Rp 499.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Ortuseight Jogosala Venom IN')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPhkca0qBqZD60WQBMR_3aIbDcu4GUB_U2VCfm688cBw&s=10" class="product-img" alt="Adidas Sala">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Adidas Top Sala Competition - Core Black</div>
+                        <div class="product-price">Rp 899.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Adidas Top Sala Competition')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM3QylxOyzedxXw_igcLh3cQEukuKQlkJPh3dF6_kFPg&s=10" class="product-img" alt="Mizuno Sala">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Futsal</div>
+                        <div class="product-title">Mizuno Morelia Sala Classic IN - White</div>
+                        <div class="product-price">Rp 799.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Mizuno Morelia Sala Classic IN')">Order Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. SUB-HALAMAN PRODUK: SEPATU BOLA (4 Produk) -->
+        <div id="page-bola" class="page-content">
+            <h2>Koleksi Sepatu Bola</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvaaFxv8NXk6XwahC6b339qDQ0fX5Y3yg9RGAKN5JrIw&s" class="product-img" alt="Nike Vapor">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Nike Vapor 15 Academy FG - Green</div>
+                        <div class="product-price">Rp 1.129.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Nike Vapor 15 Academy FG')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6onpPOeN08olJ4zZIQQ8yISEgBbtuFVvo03pq4iXUTw&s=10" class="product-img" alt="Adidas X Speedportal">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Adidas X Speedportal .3 FG - Solar Gold</div>
+                        <div class="product-price">Rp 1.200.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Adidas X Speedportal .3 FG')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2sd5xdrHR4hsKIAg8vR_8pKbymQ4p6cYkULQsBEOtmQ&s=10" class="product-img" alt="Puma Future">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Puma Future Ultimate FG/AG - Orange/Black</div>
+                        <div class="product-price">Rp 1.450.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Puma Future Ultimate FG/AG')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8IDZcw34qV83l_x6SV6a2lLY_5ug-QRdGaAEhlyV5hg&s=10" class="product-img" alt="Specs Accelerator">
+                    <div class="product-info">
+                        <div class="product-category">Sepatu Bola</div>
+                        <div class="product-title">Specs Accelerator Alpha Omega FG - Royal</div>
+                        <div class="product-price">Rp 699.800</div>
+                        <button class="btn-buy-item" onclick="directOrder('Specs Accelerator Alpha Omega FG')">Order Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. SUB-HALAMAN PRODUK: APPAREL (4 Produk) -->
+        <div id="page-apparel" class="page-content">
+            <h2>Koleksi Apparel & Jersey</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5gfZu3q--SN7HYKGdHTqvsRnY2ZZP62x5B7hkEfXXWw&s" class="product-img" alt="Jersey Timnas">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Jersey Timnas Indonesia Home 2024 Red</div>
+                        <div class="product-price">Rp 499.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Jersey Timnas Indonesia Home 2024')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwCDSBk2UN7Pu5acEOU86oV9-Wew4OUfiLzBg8SrhTYQ&s=10" class="product-img" alt="Training Shirt">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Specs Training Shirt Dry-Fit Black</div>
+                        <div class="product-price">Rp 179.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Specs Training Shirt Dry-Fit')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx9xC6ZeFpGoZRNycz_P674XSsX43z1SbU-Lvn2XKECQ&s=10" class="product-img" alt="Jersey Real Madrid">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Jersey Real Madrid Home 25/26 White</div>
+                        <div class="product-price">Rp 550.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Jersey Real Madrid Home')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0cpZkqUbzAZHq2COjeMZrlc8aK2Wf7KA6n-HZrBnCgg&s=10" class="product-img" alt="Nike Anthem Jacket">
+                    <div class="product-info">
+                        <div class="product-category">Apparel</div>
+                        <div class="product-title">Nike FC Anthem Jacket - Dark Navy</div>
+                        <div class="product-price">Rp 899.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Nike FC Anthem Jacket')">Order Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. SUB-HALAMAN PRODUK: AKSESORI (4 Produk) -->
+        <div id="page-aksesori" class="page-content">
+            <h2>Koleksi Aksesori Olahraga</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2QRqng6ohwpeEAPdWjdOTJB75S8EZmueLZsD8HqW64g&s=10" class="product-img" alt="Bola Sepak">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Bola Sepak Adidas FIFA World Cup Size 5</div>
+                        <div class="product-price">Rp 350.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Bola Sepak Adidas FIFA World Cup')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS00H4F-XmgV3rMxvihNYFByDmD3xlBedWju4TQOAF86A&s=10" class="product-img" alt="Kaos Kaki Grip">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Kaos Kaki AVO Anti-Slip Grip Socks</div>
+                        <div class="product-price">Rp 45.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Kaos Kaki AVO Anti-Slip Grip Socks')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhWOnEPxNLwulu_eaK_uwBtV4aIFoAaYhvhRbwI3O0fQ&s" class="product-img" alt="Shin Guards">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Nike Mercurial Lite Shin Guards - Black</div>
+                        <div class="product-price">Rp 199.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Nike Mercurial Lite Shin Guards')">Order Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDISyS3lS1p0kb_Vyg6ZFB2zh3fL1O1Q97Ftos5YPyOw&s=10" class="product-img" alt="Gym Sack">
+                    <div class="product-info">
+                        <div class="product-category">Aksesori</div>
+                        <div class="product-title">Tas Serut Gymsack Adidas Training Bag</div>
+                        <div class="product-price">Rp 125.000</div>
+                        <button class="btn-buy-item" onclick="directOrder('Tas Serut Gymsack Adidas')">Order Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. HALAMAN ORDER BARANG -->
+        <div id="page-order" class="page-content">
+            <h2>Form Pemesanan / Order Barang</h2>
+            <div class="form-container">
+                <form onsubmit="submitOrder(event)">
+                    <div class="form-group">
+                        <label for="order-name">Nama Lengkap</label>
+                        <input type="text" id="order-name" placeholder="Masukkan nama Anda..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-phone">Nomor WhatsApp</label>
+                        <input type="tel" id="order-phone" placeholder="0812xxxxxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-item">Pilih Produk</label>
+                        <select id="order-item" required>
+                            <option value="">-- Pilih Produk --</option>
+                            <!-- Futsal -->
+                            <option value="Specs Lightspeed 3 LX IN">Specs Lightspeed 3 LX IN - Rp 549.800</option>
+                            <option value="Ortuseight Jogosala Venom IN">Ortuseight Jogosala Venom IN - Rp 499.000</option>
+                            <option value="Adidas Top Sala Competition">Adidas Top Sala Competition - Rp 899.000</option>
+                            <option value="Mizuno Morelia Sala Classic IN">Mizuno Morelia Sala Classic IN - Rp 799.000</option>
+                            <!-- Bola -->
+                            <option value="Nike Vapor 15 Academy FG">Nike Vapor 15 Academy FG - Rp 1.129.000</option>
+                            <option value="Adidas X Speedportal .3 FG">Adidas X Speedportal .3 FG - Rp 1.200.000</option>
+                            <option value="Puma Future Ultimate FG/AG">Puma Future Ultimate FG/AG - Rp 1.450.000</option>
+                            <option value="Specs Accelerator Alpha Omega FG">Specs Accelerator Alpha Omega FG - Rp 699.800</option>
+                            <!-- Apparel -->
+                            <option value="Jersey Timnas Indonesia Home 2024">Jersey Timnas Indonesia Home 2024 - Rp 499.000</option>
+                            <option value="Specs Training Shirt Dry-Fit">Specs Training Shirt Dry-Fit - Rp 179.000</option>
+                            <option value="Jersey Real Madrid Home">Jersey Real Madrid Home - Rp 550.000</option>
+                            <option value="Nike FC Anthem Jacket">Nike FC Anthem Jacket - Rp 899.000</option>
+                            <!-- Aksesori -->
+                            <option value="Bola Sepak Adidas FIFA World Cup">Bola Sepak Adidas FIFA World Cup - Rp 350.000</option>
+                            <option value="Kaos Kaki AVO Anti-Slip Grip Socks">Kaos Kaki AVO Anti-Slip Grip Socks - Rp 45.000</option>
+                            <option value="Nike Mercurial Lite Shin Guards">Nike Mercurial Lite Shin Guards - Rp 199.000</option>
+                            <option value="Tas Serut Gymsack Adidas">Tas Serut Gymsack Adidas - Rp 125.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-qty">Jumlah (Pcs)</label>
+                        <input type="number" id="order-qty" value="1" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-address">Alamat Pengiriman</label>
+                        <textarea id="order-address" rows="3" placeholder="Alamat lengkap tujuan pengiriman..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-payment">Metode Pembayaran</label>
+                        <select id="order-payment">
+                            <option value="Transfer Bank (BCA/Mandiri)">Transfer Bank (BCA / Mandiri)</option>
+                            <option value="QRIS / E-Wallet">QRIS / E-Wallet (Gopay/OVO/Dana)</option>
+                            <option value="COD (Bayar di Tempat)">COD (Bayar di Tempat)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Kirim Orderan via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 8. HALAMAN KREDIT & CICILAN -->
+        <div id="page-kredit" class="page-content">
+            <h2>Layanan Kredit & Cicilan</h2>
+            <p style="text-align: center; margin-bottom: 25px; color: #555;">Belanja peralatan olahraga favorit Anda sekarang di Total Football, bayar nanti dengan opsi cicilan terjangkau!</p>
+            
+            <div class="info-card-grid">
+                <div class="info-card">
+                    <h3>Cicilan 0% Bank</h3>
+                    <p>Gunakan kartu kredit Bank BCA, Mandiri, atau BRI untuk nikmati cicilan 0% tenor 3, 6, hingga 12 bulan.</p>
+                </div>
+                <div class="info-card">
+                    <h3>PayLater (Tanpa Kartu Kredit)</h3>
+                    <p>Bisa gunakan Kredivo, Akulaku, atau ShopeePayLater tanpa menggunakan kartu kredit dengan proses cepat.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Syarat & Ketentuan</h3>
+                    <p>Minimal transaksi Rp 500.000. Pengajuan cicilan diverifikasi secara otomatis dalam waktu 5-10 menit.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. HALAMAN KONTAK -->
+        <div id="page-kontak" class="page-content">
+            <h2>Hubungi Kami</h2>
+            <div class="info-card-grid">
+                <div class="info-card">
+                    <h3>Alamat Toko Utama</h3>
+                    <p>Jl. Sunda No. 88, Kota Bandung, West Java, Indonesia.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Kontak Layanan Pelanggan</h3>
+                    <p><strong>WhatsApp:</strong> 0812-3456-7890<br><strong>Email:</strong> support@totalfootball.com</p>
+                </div>
+                <div class="info-card">
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Minggu: 09:00 - 21:00 WIB</p>
+                </div>
+            </div>
+
+            <div class="form-container" style="margin-top: 30px;">
+                <h3 style="text-align: center; margin-bottom: 15px; color: #1e3a5f;">Kirim Pesan / Pertanyaan</h3>
+                <form onsubmit="alert('Pesan Anda berhasil terkirim!'); event.preventDefault();">
+                    <div class="form-group">
+                        <label>Nama Anda</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email / No. HP</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pesan Anda</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Total Football</h4>
+                <p>Toko perlengkapan olahraga terlengkap dan 100% original di Indonesia.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Kategori Produk</h4>
+                <ul>
+                    <li><a href="javascript:void(0);" onclick="showPage('futsal')">Sepatu Futsal</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('bola')">Sepatu Bola</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('apparel')">Apparel</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('aksesori')">Aksesori</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="javascript:void(0);" onclick="showPage('order')">Order Barang</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('kredit')">Syarat Kredit</a></li>
+                    <li><a href="javascript:void(0);" onclick="showPage('kontak')">Kontak Kami</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Total Football. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript Logika Navigasi & Order -->
+    <script>
+        let cartCount = 0;
+
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Tampilkan halaman target
+            const selectedPage = document.getElementById('page-' + pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+
+            // Kelola status kelas active di navbar
+            const navLinks = document.querySelectorAll('.nav-item > a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            if (pageId.startsWith('produk') || pageId === 'futsal' || pageId === 'bola' || pageId === 'apparel' || pageId === 'aksesori') {
+                document.getElementById('nav-produk').classList.add('active');
+            } else {
+                const activeNav = document.getElementById('nav-' + pageId);
+                if (activeNav) activeNav.classList.add('active');
+            }
+
+            // Sembunyikan Hero Banner jika tidak di Beranda
+            const heroBanner = document.getElementById('hero-banner');
+            if (pageId === 'beranda') {
+                heroBanner.style.display = 'flex';
+            } else {
+                heroBanner.style.display = 'none';
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function directOrder(productName) {
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+            showPage('order');
+            const selectElem = document.getElementById('order-item');
+            for (let i = 0; i < selectElem.options.length; i++) {
+                if (selectElem.options[i].value.includes(productName)) {
+                    selectElem.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        function submitOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('order-name').value;
+            const phone = document.getElementById('order-phone').value;
+            const item = document.getElementById('order-item').value;
+            const qty = document.getElementById('order-qty').value;
+            
+            alert(`Terima kasih ${name}! Pesanan ${item} (${qty} pcs) berhasil diproses.`);
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('global-search-input').value.trim();
+            if (query !== "") {
+                showPage('produk-semua');
+            }
+        }
+    </script>
+</body>
+</html>
